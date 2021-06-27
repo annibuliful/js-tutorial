@@ -117,26 +117,83 @@
 //   }
 // });
 
+// /**
+//  * del search
+//  */
 /* to-do list */
+// const add_butt = document.getElementById("add_task"); /*butt*/
+// const del_butt = document.getElementById("del_task"); /*del butt*/
+// const new_taskbox = document.getElementById("new_task"); /*input*/
+// const div_box = document.getElementById("div_box"); /*div box*/
+// const show_newtask = document.getElementById("showtask"); /*p*/
+
+/**Add butt's variable */
+
+// add_butt.addEventListener("click", () => {
+//   const new_task = new_taskbox.value; /* read once*/
+//   const midDom = document.createElement("a");
+//   midDom.innerText = new_task + "\n";
+//   div_box.append(midDom);
+//   //console.log("aaa", div_box);
+
+//   new_taskbox.value = "";
+// });
+
+// del_butt.addEventListener("click", () => {
+//   for (let i = 0; i < div_box.childNodes.length; i++) {
+//     const data = new_taskbox.value + "\n";
+//     if (data === div_box.childNodes[i].innerText) {
+//       div_box.childNodes[i].remove();
+//     }
+//   }
+// });
+
+/**
+ * del in each task /** update existing task information
+ */
+
 const add_butt = document.getElementById("add_task"); /*butt*/
-const del_butt = document.getElementById("del_task"); /*del butt*/
 const new_taskbox = document.getElementById("new_task"); /*input*/
 const div_box = document.getElementById("div_box"); /*div box*/
 const show_newtask = document.getElementById("showtask"); /*p*/
 
-/**Add butt's varible */
-
 add_butt.addEventListener("click", () => {
   const new_task = new_taskbox.value; /* read once*/
-  const midDom = document.createElement("a");
-  midDom.innerText = new_task + "\n";
-  div_box.append(midDom);
-  //console.log("aaa", div_box);
-
+  const midDom = document.createElement("a"); /*("input")*/
+  const add_btn = document.createElement("button");
+  const br_dom = document.createElement("br");
+  midDom.innerHTML = new_task + " ";
+  add_btn.innerText = "delete"; /* .value (for input) */
+  div_box.append(midDom, add_btn, br_dom);
   new_taskbox.value = "";
+  add_btn.addEventListener("click", () => {
+    add_btn.remove();
+    midDom.remove();
+    /** in case of addEventListener when remove node element, event still observe chaging data in DOM.
+     * So we need to call removeEventListner after remove Node
+     */
+    //del element => empty addEventListener => consume more memory
+    add_btn.removeEventListener("click", () => {});
+  });
 });
 
-// del_butt.addEventListener("click", () => {});
+new_taskbox.addEventListener("change", (event) => {
+  /**
+   * target is a property to keep target element information such as value, style, etc
+   */
+  console.log("event-info", {
+    targetInfo: event.target,
+  });
+});
+
+/* console.log("event-info", event.target.value); */
+/* show in console: text=event-info, if value change => focus on the */
+
+// del removeChild
+// del_butt.addEventListener("click", (event) => {
+//   console.log(div_box.childNodes, event);
+//   // div_box.removeChild(div_box.childNodes[0])
+// });
 
 // function del_task() {
 //   const del = document.getElementById("div_box");

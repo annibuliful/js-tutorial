@@ -347,13 +347,26 @@ const students = [
 
 // find avg of age, more than 15
 
-const studentAges = students.map((student) => student.age);
-const avg = studentAges.reduce((pre, cur) => pre + cur, 0) / studentAges.length;
+// const studentAges = students.map((student) => student.age);
+// const avg = studentAges.reduce((pre, cur) => pre + cur, 0) / studentAges.length;
 
-const listAgesMoreThanFifteen = students.filter((student) => student.age > 15);
-const listNamesAreChar = students.filter((student) =>
-  isNaN(Number(student.name))
-);
-console.log("avg", avg);
-console.log("listAgesMoreThanFifteen", listAgesMoreThanFifteen);
-console.log("listNamesAreChar", listNamesAreChar);
+// const listAgesMoreThanFifteen = students.filter((student) => student.age > 15);
+// const listNamesAreChar = students.filter((student) =>
+//   isNaN(Number(student.name))
+// );
+// console.log("avg", avg);
+// console.log("listAgesMoreThanFifteen", listAgesMoreThanFifteen);
+// console.log("listNamesAreChar", listNamesAreChar);
+
+let a;
+
+function getAValue() {
+  return a;
+}
+
+a = 20;
+console.log(getAValue());
+
+a = 30;
+
+console.log(getAValue());
