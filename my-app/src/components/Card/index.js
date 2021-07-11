@@ -1,0 +1,23 @@
+import "./style.css";
+
+function Card() {
+  return (
+    <div className="card">
+      <img
+        className="card-image"
+        src="data:image/png;base64,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"
+        alt="twitter-info"
+      />
+      <p className="card-title">twitter</p>
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has sur
+      </p>
+      <button className="btn-black">Read More</button>
+    </div>
+  );
+}
+
+export default Card;

@@ -1,0 +1,22 @@
+.card-header {
+  background-color: aqua;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.card-content {
+  padding: 30px;
+  padding-bottom: 30px;
+}
+
+.card-container {
+  border: 1px solid black;
+}
+
+.image-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70px;
+  height: 70px;
+}
